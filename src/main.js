@@ -10,16 +10,16 @@ Vue.use(VueRouter);
 
 // router
 const routes = [
-  { path: 'top', component: Top },
+  { path: '/top', name: 'home', component: Top },
   { path: '/', redirect: '/top' }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  routes
+  routes,
+  mode: 'history'
 });
 
 new Vue({
-  render: h => h(App),
-  router
+  router,
+  render: h => h(App)
 }).$mount('#app');
