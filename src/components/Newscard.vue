@@ -1,7 +1,7 @@
 <template>
   <v-hover>
     <v-card>
-      <v-img :src="image" width="400px"></v-img>
+      <v-img :src="image"></v-img>
 
       <v-card-title primary-title>
         <div>

@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" dark>
+  <v-app id="app" dark>
     <Navbar @toggle-nav="toggleNav"/>
     <!-- drawer -->
     <v-navigation-drawer clipped fixed v-model="drawer" app>
@@ -23,21 +23,23 @@
       </v-list>
     </v-navigation-drawer>
     <!-- drawer -->
+
     <v-content>
-      <v-container fill-height>
-        <v-layout justify-center align-center>
-          <v-flex shrink></v-flex>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-start>
+          <router-view></router-view>
         </v-layout>
       </v-container>
+      <!-- hello -->
     </v-content>
   </v-app>
 </template>
 
 <script>
 import Navbar from "./components/Navbar";
-import Top from "./pages/Top";
 export default {
-  components: { Navbar, Top },
+  name: "app",
+  components: { Navbar },
   data: () => ({
     drawer: null
   }),
