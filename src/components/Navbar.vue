@@ -1,17 +1,28 @@
 <template>
-  <v-toolbar dark>
-    <v-toolbar-side-icon></v-toolbar-side-icon>
+  <v-toolbar app fixed clipped-left>
+    <v-toolbar-side-icon @click="toggleSideBar()"></v-toolbar-side-icon>
     <v-toolbar-title>The Newsroom</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Top Stories</v-btn>
-      <v-btn flat>Latest Stories</v-btn>
-    </v-toolbar-items>
+    <v-layout row align-center style="max-width: 275px" class="hidden-md-and-down">
+      <v-text-field
+        placeholder="Search..."
+        single-line
+        append-icon="search"
+        color="white"
+        hide-details
+      ></v-text-field>
+    </v-layout>
   </v-toolbar>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleSideBar() {
+      this.$emit("toggle-nav");
+    }
+  }
+};
 </script>
 
 <style>
