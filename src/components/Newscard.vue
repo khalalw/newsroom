@@ -1,28 +1,38 @@
 <template>
-  <v-layout>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <v-img class="white--text" width="400px" :src="image"></v-img>
-        <v-card-title>
-          <div>
-            <span class="grey--text">Number 10</span>
-            <br>
-            <span>Whitehaven Beach</span>
-            <br>
-            <span>Whitsunday Island, Whitsunday Islands</span>
-          </div>
-        </v-card-title>
-        <v-card-actions>
-          <v-btn flat color="orange">View Source</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+  <v-hover>
+    <v-card>
+      <v-img :src="image" width="400px"></v-img>
+
+      <v-card-title primary-title>
+        <div>
+          <div class="headline">{{newsTitle}}</div>
+          <span class="grey--text">{{publishTime}}</span>
+        </div>
+      </v-card-title>
+
+      <v-card-actions>
+        <a :href="articleURL" target="_blank">
+          <v-btn flat>View Source</v-btn>
+        </a>
+        <v-spacer></v-spacer>
+        <v-btn icon @click="show = !show">
+          <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
+        </v-btn>
+      </v-card-actions>
+
+      <v-slide-y-transition>
+        <v-card-text v-show="show">{{description}}</v-card-text>
+      </v-slide-y-transition>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>
 export default {
-  props: ["newsTitle", "publishTime", "image", "description", "articleURL"]
+  props: ["newsTitle", "publishTime", "image", "description", "articleURL"],
+  data: () => ({
+    show: false
+  })
 };
 </script>
 

@@ -1,22 +1,31 @@
 <template>
-  <v-app>
-    <Navbar/>
-    <Newscard/>
+  <v-app id="inspire" dark>
+    <Navbar @toggle-nav="toggleNav"/>
+    <Sidenav :drawer="drawer"/>
+
+    <v-content>
+      <v-container fill-height>
+        <v-layout justify-center align-center>
+          <v-flex shrink></v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
 <script>
+import Sidenav from "./components/Sidenav";
 import Navbar from "./components/Navbar";
-import Newscard from "./components/Newscard";
-
+import Top from "./pages/Top";
 export default {
-  name: "App",
-  components: {
-    Navbar,
-    Newscard
-  },
-  data() {
-    return {};
+  components: { Sidenav, Navbar, Top },
+  data: () => ({
+    drawer: null
+  }),
+  methods: {
+    toggleNav() {
+      this.drawer = !this.drawer;
+    }
   }
 };
 </script>
