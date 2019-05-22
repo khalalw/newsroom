@@ -1,6 +1,7 @@
 <template>
-  <v-layout row wrap>
-    <v-flex xs12 sm6 offset-sm3 v-for="(article, index) in topNews.articles" :key="index">
+
+  <v-layout row wrap align-content-space-between justify-space-around>
+    <div class="newscard" v-for="(article, index) in topNews.articles" :key="index">
       <Newscard
         :image="article.urlToImage"
         :newsTitle="article.title"
@@ -8,7 +9,7 @@
         :articleURL="article.url"
         :description="article.description"
       />
-    </v-flex>
+    </div>
   </v-layout>
 </template>
 
@@ -38,4 +39,7 @@ export default {
 </script>
 
 <style scoped>
+  .newscard {
+    margin-bottom: 30px;
+  }
 </style>

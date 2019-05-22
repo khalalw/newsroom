@@ -25,13 +25,14 @@
     <!-- drawer -->
 
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-start>
+      <v-container fluid>
+
           <router-view></router-view>
-        </v-layout>
+
       </v-container>
       <!-- hello -->
     </v-content>
+    <v-footer app></v-footer>
   </v-app>
 </template>
 
