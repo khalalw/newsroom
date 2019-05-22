@@ -14,8 +14,10 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import Newscard from '../components/Newscard'
+  import Newscard from '../components/Newscard';
+  import * as NewsAPI from 'newsapi';
+
+  const newsapi = new NewsAPI('b7937248fde44f8c83c367b292cc827e');
 
   export default {
     name: 'Top',
@@ -25,18 +27,14 @@
     data() {
       return {
         topNews: {}
-      }
+      };
     },
     created: function () {
-      axios
-        .get(
-          'https://newsapi.org/v2/top-headlines?country=us&apiKey=b7937248fde44f8c83c367b292cc827e'
-        )
-        .then(res => {
-          this.topNews = res.data
-        })
+      newsapi.v2.topHeadlines({
+        country: 'us'
+      }).then(res => this.topNews = res)
     }
-  }
+  };
 </script>
 
 <style scoped>
