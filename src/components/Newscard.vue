@@ -1,6 +1,6 @@
 <template>
-  <v-hover>
-    <v-card>
+
+    <v-card max-width="400px">
       <v-img :src="image"></v-img>
 
       <v-card-title primary-title>
@@ -24,7 +24,6 @@
         <v-card-text v-show="show">{{description}}</v-card-text>
       </v-slide-y-transition>
     </v-card>
-  </v-hover>
 </template>
 
 <script>
@@ -36,5 +35,6 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
 </style>
