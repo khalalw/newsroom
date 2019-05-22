@@ -1,6 +1,7 @@
 <template>
   <v-app id="app" dark>
     <Navbar @toggle-nav="toggleNav"/>
+
     <!-- drawer -->
     <v-navigation-drawer clipped fixed v-model="drawer" app>
       <v-list dense>

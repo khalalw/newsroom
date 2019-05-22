@@ -10,7 +10,10 @@
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
+    "js-joda": "^1.10.1",
+    "luxon": "^1.15.0",
     "masonry-layout": "^4.2.2",
+    "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-masonry": "^0.11.7",
     "vue-resource": "^1.5.1",

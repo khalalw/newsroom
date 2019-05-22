@@ -7,7 +7,6 @@ import Top from './pages/Top';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
-
 // router
 const routes = [
   { path: '/top', name: 'home', component: Top },
