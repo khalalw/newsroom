@@ -1,9 +1,9 @@
 <template>
-  <v-app id="app" dark>
+  <v-app dark id="app">
     <Navbar @toggle-nav="toggleNav"/>
 
     <!-- drawer -->
-    <v-navigation-drawer clipped fixed v-model="drawer" app>
+    <v-navigation-drawer app clipped fixed v-model="drawer">
       <v-list dense>
         <v-list-tile>
           <v-list-tile-action>
@@ -28,7 +28,7 @@
     <v-content>
       <v-container fluid>
 
-          <router-view></router-view>
+        <router-view></router-view>
 
       </v-container>
       <!-- hello -->
@@ -38,17 +38,18 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
-export default {
-  name: "app",
-  components: { Navbar },
-  data: () => ({
-    drawer: null
-  }),
-  methods: {
-    toggleNav() {
-      this.drawer = !this.drawer;
+  import Navbar from './components/Navbar';
+
+  export default {
+    name: 'app',
+    components: { Navbar },
+    data: () => ({
+      drawer: null
+    }),
+    methods: {
+      toggleNav() {
+        this.drawer = !this.drawer;
+      }
     }
-  }
-};
+  };
 </script>
