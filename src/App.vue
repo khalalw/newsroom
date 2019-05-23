@@ -15,10 +15,10 @@
         </v-list-tile>
         <v-list-tile>
           <v-list-tile-action>
-            <v-icon>settings</v-icon>
+            <v-icon>search</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Settings</v-list-tile-title>
+            <v-list-tile-title>Search</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -33,16 +33,17 @@
       </v-container>
       <!-- hello -->
     </v-content>
-    <v-footer app></v-footer>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
   import Navbar from './components/Navbar';
+  import Footer from './components/Footer';
 
   export default {
     name: 'app',
-    components: { Navbar },
+    components: { Navbar, Footer },
     data: () => ({
       drawer: null
     }),
