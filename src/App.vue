@@ -5,25 +5,22 @@
     <!-- drawer -->
     <v-navigation-drawer app clipped fixed v-model="drawer">
       <v-list dense>
-        <v-list-tile>
+        <v-list-tile
+          :key="item.title"
+          :to="item.route"
+          router
+          v-for="item in items"
+        >
           <v-list-tile-action>
-            <v-icon>dashboard</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Top Stories</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>search</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>Search</v-list-tile-title>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <!-- drawer -->
+    <!-- end of drawer -->
 
     <v-content>
       <v-container fluid>
@@ -45,7 +42,12 @@
     name: 'app',
     components: { Navbar, Footer },
     data: () => ({
-      drawer: null
+      drawer: null,
+      items: [ { icon: 'dashboard', title: 'Top Stories', route: '/top' }, {
+        icon: 'search',
+        title: 'Search',
+        route: '/search'
+      } ]
     }),
     methods: {
       toggleNav() {
