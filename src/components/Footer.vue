@@ -6,7 +6,7 @@
         lighten-2
         py-3
         text-xs-center
-        white--text
+        black--text
         xs12
       >
         &copy;2019 — <strong>Khalal Walker</strong>

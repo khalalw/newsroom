@@ -1,5 +1,5 @@
 <template>
-  <v-app dark id="app">
+  <v-app id="app" light>
     <Navbar @toggle-nav="toggleNav"/>
 
     <!-- drawer -->

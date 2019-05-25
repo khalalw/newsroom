@@ -6,10 +6,9 @@
     <v-layout align-center class="hidden-md-and-down" row style="max-width: 275px">
       <v-text-field
         append-icon="search"
-        color="white"
+        color="black"
         hide-details
-        placeholder="Search..."
-        single-line
+        label="Search..."
       ></v-text-field>
     </v-layout>
   </v-toolbar>

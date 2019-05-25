@@ -30,9 +30,9 @@
       };
     },
     created: function () {
-      // newsapi.v2.topHeadlines({
-      //   country: 'us'
-      // }).then(res => this.topNews = res)
+      newsapi.v2.topHeadlines({
+        country: 'us'
+      }).then(res => this.topNews = res)
     }
   };
 </script>
