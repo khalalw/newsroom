@@ -18,16 +18,8 @@
 <script>
   export default {
     name: 'Footer',
-    data() {
-      return {
-        currentYear: this.getCurrentYear()
-      };
-    },
-    methods: {
-      getCurrentYear: function () {
-        return new Date().getFullYear();
-      }
-    }
+    data: () => ({}),
+    methods: {}
 
   };
 </script>

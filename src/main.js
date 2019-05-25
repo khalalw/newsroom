@@ -4,13 +4,15 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 
 import Top from './pages/Top';
+import Search from './pages/Search';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 // router
 const routes = [
   { path: '/top', name: 'home', component: Top },
-  { path: '/', redirect: '/top' }
+  { path: '/', redirect: '/top' },
+  { path: '/search', name: 'search', component: Search }
 ];
 
 const router = new VueRouter({
