@@ -1,6 +1,6 @@
 <template>
       <v-card max-width="400px">
-        <v-img :src="image"></v-img>
+        <v-img :src="image" alt="article image"></v-img>
 
         <v-card-title primary-title>
           <div>
