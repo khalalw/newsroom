@@ -33,8 +33,10 @@
             :description="article.description"
             :key="index"
             :published-at="article.publishedAt"
-            :url-to-image="article.urlToImage"
+            :source="article.source.name"
             :title="article.title"
+            :url="article.url"
+            :url-to-image="article.urlToImage"
           ></Searchcard>
           <v-divider :key="index"></v-divider>
         </template>
