@@ -25,8 +25,10 @@
       ></v-progress-circular>
     </div>
 
+    <div class="text-xs-center" v-if="noResults">No results found</div>
 
-    <v-layout justify-center row wrap>
+
+    <v-layout justify-center row v-if="results.articles && results.articles.length > 0" wrap>
       <v-flex xs10>
         <template v-for="(article, index) in results.articles">
           <Searchcard
@@ -38,10 +40,18 @@
             :url="article.url"
             :url-to-image="article.urlToImage"
           ></Searchcard>
-          <v-divider :key="index"></v-divider>
+          <v-divider></v-divider>
         </template>
       </v-flex>
+
+      <v-pagination
+        @input="getSearchResults"
+        length="10"
+        v-model="page"
+      ></v-pagination>
+
     </v-layout>
+
   </v-container>
 
 
@@ -61,16 +71,21 @@
       return {
         results: {},
         query: '',
-        isSearching: false
+        isSearching: false,
+        noResults: null,
+        page: 1,
       };
     },
     methods: {
       getSearchResults() {
         this.results = {};
         this.isSearching = true;
+        this.noResults = false;
         newsapi.v2.everything({
           q: this.query,
-          sortBy: 'relevancy'
+          sortBy: 'relevancy',
+          pageSize: 10,
+          page: this.page
         }).then(response => {
           this.results = response;
           this.isSearching = false;

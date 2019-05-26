@@ -7,15 +7,15 @@
       slot-scope="{ hover }"
       target="_blank"
     >
-      <v-layout>
-        <v-flex align-self-center xs4>
+      <v-layout row wrap>
+        <v-flex align-self-center xs12 md4>
           <v-img
             :src="urlToImage"
             alt="article photo"
             contain
           ></v-img>
         </v-flex>
-        <v-flex xs8>
+        <v-flex xs12 md8>
           <v-card-title primary-title>
             <div>
               <div class="headline">{{ title }}</div>
