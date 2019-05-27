@@ -28,9 +28,11 @@
         <router-view></router-view>
 
       </v-container>
+
       <!-- hello -->
     </v-content>
-    <Footer/>
+    <Footer app/>
+
   </v-app>
 </template>
 

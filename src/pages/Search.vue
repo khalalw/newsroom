@@ -18,11 +18,11 @@
     </v-form>
 
     <div class="text-xs-center" v-if="isSearching">
-      <v-progress-circular
+      <v-progress-linear
         indeterminate
         size="110"
         width="7"
-      ></v-progress-circular>
+      ></v-progress-linear>
     </div>
 
     <div class="text-xs-center" v-if="noResults">No results found</div>
@@ -38,17 +38,24 @@
             :source="article.source.name"
             :title="article.title"
             :url="article.url"
-            :url-to-image="article.urlToImage"
+            :url-to-image="article.urlToImage || ''"
           ></Searchcard>
-          <v-divider></v-divider>
+          <!--          <v-divider></v-divider>-->
         </template>
       </v-flex>
 
-      <v-pagination
-        @input="getSearchResults"
-        length="10"
-        v-model="page"
-      ></v-pagination>
+      <v-flex class="pagination" xs12>
+
+        <v-pagination
+          :length="numOfPages"
+          @input="getSearchResults"
+          circle
+          v-model="page"
+
+        ></v-pagination>
+
+      </v-flex>
+
 
     </v-layout>
 
@@ -74,6 +81,7 @@
         isSearching: false,
         noResults: null,
         page: 1,
+        numOfPages: null
       };
     },
     methods: {
@@ -89,12 +97,26 @@
         }).then(response => {
           this.results = response;
           this.isSearching = false;
+          this.numOfPages = Math.ceil(this.getNumOfResults() / 10) > 10 ? 10 :
+            Math.ceil(this.getNumOfResults() / 10);
+
+          if (!this.getNumOfResults()) {
+            this.noResults = true;
+          }
         });
+      },
+      getNumOfResults() {
+        return this.results[ 'totalResults' ];
       }
-    }
+    },
+
   };
 </script>
 
-<style>
+<style scoped>
+  .pagination {
+    text-align: center;
+    padding-top: 30px;
+  }
 
 </style>

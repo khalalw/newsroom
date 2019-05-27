@@ -5,7 +5,7 @@
       <Newscard
         :articleURL="article.url"
         :description="article.description"
-        :image="article.urlToImage"
+        :image="article.urlToImage || ''"
         :newsTitle="article.title"
         :publishTime="article.publishedAt"
       />
