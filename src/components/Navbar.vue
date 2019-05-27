@@ -9,6 +9,8 @@
         color="black"
         hide-details
         label="Search..."
+        v-model="q"
+        v-on:keydown.enter="search"
       ></v-text-field>
     </v-layout>
   </v-toolbar>
@@ -16,9 +18,17 @@
 
 <script>
   export default {
+    data() {
+      return {
+        q: ''
+      }
+    },
     methods: {
       toggleSideBar() {
         this.$emit('toggle-nav');
+      },
+      search() {
+        this.$router.push({name: 'search', params: {q: this.q}});
       }
     }
   };

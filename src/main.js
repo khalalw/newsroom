@@ -12,7 +12,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: '/top', name: 'home', component: Top },
   { path: '/', redirect: '/top' },
-  { path: '/search', name: 'search', component: Search }
+  { path: '/search', name: 'search', component: Search, props: true }
 ];
 
 const router = new VueRouter({

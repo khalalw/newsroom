@@ -1,6 +1,6 @@
 <template>
-  <v-app id="app" light>
-    <Navbar @toggle-nav="toggleNav"/>
+  <v-app id="app" light ref="app">
+    <Navbar @search="startSearch" @toggle-nav="toggleNav"/>
 
     <!-- drawer -->
     <v-navigation-drawer app clipped fixed v-model="drawer">
@@ -22,7 +22,7 @@
     </v-navigation-drawer>
     <!-- end of drawer -->
 
-    <v-content>
+    <v-content ref="router">
       <v-container fluid>
 
         <router-view></router-view>
@@ -54,7 +54,11 @@
     methods: {
       toggleNav() {
         this.drawer = !this.drawer;
+      },
+      startSearch() {
+
       }
+
     }
   };
 </script>

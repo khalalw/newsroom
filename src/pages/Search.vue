@@ -74,10 +74,11 @@
     components: {
       Searchcard
     },
+    props: [ 'q' ],
     data() {
       return {
         results: {},
-        query: '',
+        query: '' || this.q,
         isSearching: false,
         noResults: null,
         page: 1,
