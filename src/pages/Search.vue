@@ -31,6 +31,11 @@
     <v-layout justify-center row v-if="results.articles && results.articles.length > 0" wrap>
       <v-flex xs10>
         <template v-for="(article, index) in results.articles">
+
+          <v-item-group :key="index">
+              
+          </v-item-group>         
+
           <Searchcard
             :description="article.description"
             :key="index"
@@ -90,6 +95,7 @@
         this.results = {};
         this.isSearching = true;
         this.noResults = false;
+
         newsapi.v2.everything({
           q: this.query,
           sortBy: 'relevancy',
