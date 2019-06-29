@@ -10,8 +10,7 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 // router
 const routes = [
-  { path: '/top', name: 'home', component: Top },
-  { path: '/', redirect: '/top' },
+  { path: '/', name: 'home', component: Top },
   { path: '/search', name: 'search', component: Search, props: true }
 ];
 

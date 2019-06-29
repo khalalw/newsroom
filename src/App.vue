@@ -45,7 +45,7 @@
     components: { Navbar, Footer },
     data: () => ({
       drawer: null,
-      items: [ { icon: 'dashboard', title: 'Top Stories', route: '/top' }, {
+      items: [ { icon: 'dashboard', title: 'Top Stories', route: '/' }, {
         icon: 'search',
         title: 'Search',
         route: '/search'
